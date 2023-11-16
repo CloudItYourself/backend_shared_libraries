@@ -4,5 +4,5 @@ setup(
     name="tpc_backend_libraries",
     version="0.0.1",
     packages=find_packages(),
-    install_requires=['pydantic', 'websockets', 'aioboto']
+    install_requires=['pydantic', 'websockets', 'aioboto3']
 )

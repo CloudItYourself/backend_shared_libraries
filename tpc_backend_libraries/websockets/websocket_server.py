@@ -43,7 +43,7 @@ class WebSocketServer:
     def subscribe(self, path: str, subscriber: WebSocketSubscriber):
         self._path_to_subscribers[path] = subscriber
 
-    async def send_message(self, websocket_id: str, message, wait_for_response: bool = False):
+    async def send_message(self, websocket_id: str, message: str, wait_for_response: bool = False):
         if websocket_id in self._websocket_id_to_websocket:
             await self._websocket_id_to_websocket[websocket_id].send(message)
             if wait_for_response:

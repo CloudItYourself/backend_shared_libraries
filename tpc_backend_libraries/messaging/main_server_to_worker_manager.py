@@ -1,3 +1,4 @@
+from pydantic import BaseModel
 class ContainerMetrics(BaseModel):
     pod_name: str
     cpu_utilization: float
