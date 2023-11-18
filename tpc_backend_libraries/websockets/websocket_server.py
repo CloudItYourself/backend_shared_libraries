@@ -18,7 +18,7 @@ class WebSocketSubscriber:
         pass
 
     def wait_for_first_message(self) -> bool:
-        return True
+        return False
 
 
 class WebSocketServer:
