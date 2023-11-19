@@ -2,16 +2,15 @@ import logging
 from typing import Final
 from axiom_logger import AxiomHandler
 
+from tpc_backend_libraries.environment.env_supplier import EnvironmentSupplier
+
 LOGGING_FORMAT: Final[str] = "[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s"
 
 
 def initialize_logger(logger_name: str):
     formatter = logging.Formatter(LOGGING_FORMAT)
-
-    axiom_handler = AxiomHandler(
-            'backend-logs',
-            'xaat-f647b50d-d7b3-4211-814a-74e3e4c98ddb'
-        )
+    logger_details = EnvironmentSupplier().get_axiom_logger_details()
+    axiom_handler = AxiomHandler(logger_details.dataset, logger_details.api_token)
     axiom_handler.setLevel(logging.INFO)
 
     logger = logging.getLogger(logger_name)
