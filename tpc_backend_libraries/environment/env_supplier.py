@@ -1,4 +1,5 @@
 import os
+import certifi
 from dataclasses import dataclass
 from typing import Final
 
@@ -29,8 +30,7 @@ class S3Details:
 class EnvironmentSupplier(metaclass=Singleton):
     def __init__(self):
         self._mongo_uri = os.environ['MONGO_URI']
-        print("Make sure you have a valid mongo atlas certificate, download available at: https://letsencrypt.org/certs/lets-encrypt-r3.pem")
-        self._mongo_client = MongoClient(self._mongo_uri)
+        self._mongo_client = MongoClient(self._mongo_uri, tlsCAFile=certifi.where())
 
     def get_axiom_logger_details(self) -> LoggerDetails:
         collection = self._mongo_client.Configurations.backend
