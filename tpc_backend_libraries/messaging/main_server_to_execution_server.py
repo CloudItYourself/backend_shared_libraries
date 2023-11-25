@@ -21,9 +21,15 @@ class RunPodRequest(BaseModel):
     execution_server_port: int
 
 
+class ExecutionServerClientWSDetails(BaseModel):
+    ip: str
+    port: int
+
 class ExecutionServerWSDetails(BaseModel):
     ip: str
     port: int
+
+    client_details: ExecutionServerClientWSDetails
 
 
 class ExecutionResponse(BaseModel):
