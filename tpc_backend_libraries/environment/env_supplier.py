@@ -23,6 +23,7 @@ class GitLabDetails:
 @dataclass
 class S3Details:
     url: str
+    bucket: str
     access_key: str
     secret_key: str
 
@@ -53,6 +54,17 @@ class EnvironmentSupplier(metaclass=Singleton):
         document = collection.find_one({'config_name': 'user_s3'})
         return S3Details(
             url=document['s3_url'],
+            bucket=document['s3_bucket'],
+            access_key=document['s3_access_key'],
+            secret_key=document['s3_secret_key']
+        )
+
+    def get_admin_s3_details(self) -> S3Details:
+        collection = self._mongo_client.Configurations.backend
+        document = collection.find_one({'config_name': 'admin_s3'})
+        return S3Details(
+            url=document['s3_url'],
+            bucket=document['s3_bucket'],
             access_key=document['s3_access_key'],
             secret_key=document['s3_secret_key']
         )
