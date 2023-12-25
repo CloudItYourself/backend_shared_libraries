@@ -22,6 +22,7 @@ class GitLabDetails:
 
 @dataclass
 class S3Details:
+    user_name: str
     url: str
     bucket: str
     access_key: str
@@ -56,7 +57,8 @@ class EnvironmentSupplier(metaclass=Singleton):
             url=document['s3_url'],
             bucket=document['s3_bucket'],
             access_key=document['s3_access_key'],
-            secret_key=document['s3_secret_key']
+            secret_key=document['s3_secret_key'],
+            user_name=document['s3_user']
         )
 
     def get_admin_s3_details(self) -> S3Details:
@@ -66,5 +68,6 @@ class EnvironmentSupplier(metaclass=Singleton):
             url=document['s3_url'],
             bucket=document['s3_bucket'],
             access_key=document['s3_access_key'],
-            secret_key=document['s3_secret_key']
+            secret_key=document['s3_secret_key'],
+            user_name=document['s3_user']
         )
