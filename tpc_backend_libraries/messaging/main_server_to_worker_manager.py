@@ -15,7 +15,6 @@ class WorkerMetrics(BaseModel):
     vm_cpu_allocated: float
     vm_memory_used: float
     vm_memory_available: float
-    container_metrics: List[ContainerMetrics]
 
 
 class WorkerDiscoveryMessage(BaseModel):
