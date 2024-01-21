@@ -2,7 +2,7 @@ import logging
 from typing import Final
 from axiom_logger import AxiomHandler
 
-from tpc_backend_libraries.environment.env_supplier import EnvironmentSupplier
+from ciy_backend_libraries.environment.env_supplier import EnvironmentSupplier
 
 LOGGING_FORMAT: Final[str] = "[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s"
 

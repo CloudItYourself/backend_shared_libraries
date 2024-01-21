@@ -5,7 +5,7 @@ from typing import Final
 
 from pymongo import MongoClient
 
-from tpc_backend_libraries.general.singleton import Singleton
+from ciy_backend_libraries.general.singleton import Singleton
 
 
 @dataclass
