@@ -2,7 +2,7 @@ name: Build base python docker images
 run-name: ${{ github.actor }}
 on: [ push ]
 jobs:
-  Build-Docker-Image-Python38:
+  build-and-upload-package:
     runs-on: self-hosted
     steps:
       - name: Check out repository code
@@ -23,5 +23,5 @@ jobs:
         run: python setup.py bdist_wheel --universal
 
       - name: Upload package
-        run: twine upload --repository-url https://gitlab.example.com/api/v4/projects/<project_id>/packages/pypi --skip-existing -u ci-python-package-user -p glpat-3zqVQwKxwU_Qsvc_8fw8 dist/*
+        run: twine upload --repository-url https://gitlab.example.com/api/v4/projects/ciy/packages/pypi --skip-existing -u ci-python-package-user -p glpat-3zqVQwKxwU_Qsvc_8fw8 dist/*
 
