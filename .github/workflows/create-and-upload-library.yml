@@ -23,5 +23,5 @@ jobs:
         run: python setup.py bdist_wheel --universal
 
       - name: Upload package
-        run: twine upload --repository-url https://gitlab.ronen4822.com/api/v4/projects/ciy/packages/pypi --skip-existing -u ci-python-package-user -p glpat-3zqVQwKxwU_Qsvc_8fw8 dist/*
+        run: twine upload --repository-url https://gitlab.com/api/v4/projects/54080196/packages/pypi --skip-existing -u ci-python-package-user -p glpat-3zqVQwKxwU_Qsvc_8fw8 dist/*
 
