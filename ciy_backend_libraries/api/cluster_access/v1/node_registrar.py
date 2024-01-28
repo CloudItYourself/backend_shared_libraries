@@ -1,12 +1,15 @@
+import hashlib
+
 from pydantic import BaseModel
+import hashlib
 
 
 class NodeDetails(BaseModel):
     name: str
     id: str
 
-    def __hash__(self):
-        return hash(self.name + self.id)
+    def __str__(self):
+        return hashlib.sha256((self.name + self.id).encode()).hexdigest()
 
 
 class RegistrationDetails(BaseModel):
