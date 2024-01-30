@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class WorkerMetrics(BaseModel):
-    timestamp: datetime.datetime.timestamp
+    timestamp: float
     total_cpu_utilization: float
     total_memory_used: float
     total_memory_available: float
