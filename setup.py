@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ciy_backend_libraries",
-    version="0.0.7",
+    version="0.0.8",
     packages=find_packages(),
     install_requires=['pydantic', 'websockets', 'aioboto3', 'axiom-logger', 'pymongo', 'certifi']
 )

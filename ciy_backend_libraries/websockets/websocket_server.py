@@ -62,7 +62,12 @@ class WebSocketServer:
                 message = await websocket.recv()
                 await self._path_to_subscribers[path].handle_first_message(websocket.id, message)
             while True:
-                await asyncio.sleep(1000)
+                await asyncio.sleep(1)
+                try:
+                    await websocket.ping()
+                except ConnectionClosed:
+                    await self._path_to_subscribers[path].handle_disconnect(websocket.id)
+                    break
         else:
             websock_id = websocket.id
             await websocket.close()
